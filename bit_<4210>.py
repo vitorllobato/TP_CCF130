@@ -7,6 +7,7 @@ SS = [0 for s in range(N)]
 OPER = str(input().upper())
 vet = OPER.split(" ")
 resultado = [0 for v in range(N)]
+resultado5 = [0 for v in range(N)]
 
 if N < 1001: #Se o número de entradas for menor ou igual a 1000.
     
@@ -107,13 +108,40 @@ if N < 1001: #Se o número de entradas for menor ou igual a 1000.
                        
                         elif vet[1] == "MOR": #Casos de MOR com termos iguais.
                             resultado = [1 for i in range(N)]
-
-                                
+                   
                     print(*resultado,sep='')
+
                 
                 elif len(vet) == 5: #Se houverem dois operadores lógicos.    
-                    print ("Sucesso")
-            
+                        
+                    if vet[1] == vet[3]: #Casos para operadores iguais.
+                    
+                        if vet[1] == "AND": #Operadores "AND" e "AND".
+                            if vet[0] == vet[2] and vet[2] == vet[4]:
+                                if vet[0] == "S1":
+                                    resultado5 = S1[:]
+                                elif vet[0] == "S2":
+                                    resultado5 = S2[:]
+                            
+                            else:
+                                for i in range(N):
+                                    if S1[i] == "1" and S2[i] == "1":
+                                        resultado5[i] = "1"
+
+                    elif vet[1] != vet[3]: #Casos para operadores diferentes.
+                        if vet[3] == "OR": #Casos com segundo operador "OR".
+                            if vet == "S2 MOR S1 AND S2":
+                                if S2[i] == "0":
+                                    resultado5[i] = 0
+                                    
+                                        
+                                    
+                    
+                        
+                            
+                    print (*resultado5,sep='')
+
+
             else: #Encerra o programa caso os números não forem 0 ou 1.
                 print("ERRO") #Encerra o programa caso os números não forem 0 ou 1.
         
